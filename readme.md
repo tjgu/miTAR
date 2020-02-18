@@ -8,8 +8,7 @@ A set of functions were developed to assist the analysis and all are in utils.py
 
 To predict the targets for one miRNA, predict_onemiRmultimRNA.py can be used. An example is shown here:
 
-    python predict_onemiRmultimRNA.py -i1 data/mrna_multiple_mixedLongShort.fa -i2 data/mirna_hsa-miR-139-5p.txt -o results/mir139-5p_predictedTar.fa -p 0.8 -ns 1 -s 22
-    
+    python predict_onemiRmultimRNA.py -i1 data/mrna_multiple_mixedLongShort.fa -i2 data/mirna_hsa-miR-139-5p.txt -o results/mir139-5p_predictedTar.fa -p 0.8 -ns 1 -s 22 
 The meaning of the parameters can be obtained by python predict_onemiRmultimRNA.py -h
 
 To predict the targets for multiple miRNAs, predict_multimiRmultimRNA.py can be used. An example is shown here: 
