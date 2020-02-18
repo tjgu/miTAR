@@ -6,11 +6,14 @@ To get the best hyperparameters for each model, we tested multiple hyperparamete
 python/3.6.5 and Keras with TensorFlow as backend were used to implement the models and perform all the analysis.
 A set of functions were developed to assist the analysis and all are in utils.py
 
-To predict the targets for one miRNA, predict_onemiRmultimRNA.py can be used. An example is shown here: 
+To predict the targets for one miRNA, predict_onemiRmultimRNA.py can be used. An example is shown here:
+
     python predict_onemiRmultimRNA.py -i1 data/mrna_multiple_mixedLongShort.fa -i2 data/mirna_hsa-miR-139-5p.txt -o results/mir139-5p_predictedTar.fa -p 0.8 -ns 1 -s 22
+    
 The meaning of the parameters can be obtained by python predict_onemiRmultimRNA.py -h
 
 To predict the targets for multiple miRNAs, predict_multimiRmultimRNA.py can be used. An example is shown here: 
+
     python predict_multimiRmultimRNA.py -i1 data/mrna_multiple_mixedLongShort.fa -i2 data/mirna_multiple.fa -o results/mirna_multiple_predictedTar.fa -s 22 -p 0.8 -ns 1
 The meaning of the parameters are the same as predict_onemiRmultimRNA.py and can be otained by python predict_multimiRmultimRNA.py -h
 
