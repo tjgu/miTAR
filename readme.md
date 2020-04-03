@@ -20,5 +20,5 @@ The meaning of the parameters are the same as predict_onemiRmultimRNA.py and can
 
 The model used in the predict_multimiRmultimRNA.py and predict_onemiRmultimRNA.py is miTAR. If you would like to use a different model, please replace the model with another one, and change the fragment length to match the model input.
 
-If you have any questions, please contact Tongjun Gu: tgu at ufl.edu.
+If you have any questions or suggestions, please contact Tongjun Gu: tgu at ufl.edu.
    
