@@ -18,7 +18,7 @@ The meaning of the parameters are the same as predict_onemiRmultimRNA.py and can
 The model used in the predict_multimiRmultimRNA.py and predict_onemiRmultimRNA.py is miTAR. If you would like to use a different model, please replace the model with another one, and change the fragment length to match the model input.
 
 Requirements:
-
+The following packages should be installed before running the scripts
 python: >=3.6
 
 tensorflow: 1.14.0
