@@ -36,6 +36,8 @@ scipy
 
 sklearn
 
+The input of our tools are: whole sequence/sequences of miRNA/miRNAs from 5'->3'; gene sequence/sequences from 5'->3'. For longer gene sequence, the tools will automatically split into overlapped short sequences that matches the model requirement. 
+
 ## conda
 This directory contains a Conda package with all the packages and dependencies installed. We supplied the package for 11 platforms. The package is renamed as mitar.
 
