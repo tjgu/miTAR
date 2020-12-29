@@ -260,6 +260,40 @@ def formatDeepMirTar2(filename):
 				values[1] = values[1] + 'N' * (26 - len(values[1]))
 			seq2 = values[1] + values[3]
 			seq2 = re.sub('T', 'U', seq2.rstrip('\r\n'))
+			#print('seq=' + str(seq2))
+			token = [encode[s] for s in seq2.upper()]
+			name = values[0] + "_" + values[2]
+			seqs.append((token, name))
+			l.append(values[4].rstrip('\r\n'))
+
+	return seqs, l
+
+def formatDeepMirTarRev(filename):
+	"""
+	function:
+		format the DeepMirTar data: tokenize the sequences into 0,1,2,3,4 and saved the token into a list.
+		this function will pad the miRNA sequences with N if they are less than 26.
+
+	inputs:
+		filename - the input file name. The format is as following:
+		miRNA Mature_mirna_transcript_reversed gene_Id 3UTR_transcript label
+	returns:
+		seqs - A list containing the sequences that combine both miRNA and 3UTR, and the gene names
+		l - A list containing the labels.
+	"""
+	seqs = list()
+	l = list()
+	encode = dict(zip('NAUCG', range(5)))
+	with open(filename, 'r') as infl:
+		next(infl)
+		for line in infl:
+			values = line.split("\t")
+			values[1] = "".join(reversed(values[1]))
+			if len(values[1]) < 26:
+				values[1] = values[1] + 'N' * (26 - len(values[1]))
+			values[3] = "".join(reversed(values[3]))
+			seq2 = values[1] + values[3]
+			seq2 = re.sub('T', 'U', seq2.rstrip('\r\n'))
 			token = [encode[s] for s in seq2.upper()]
 			name = values[0] + "_" + values[2]
 			seqs.append((token, name))

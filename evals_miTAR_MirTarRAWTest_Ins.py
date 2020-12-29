@@ -11,7 +11,7 @@ from sklearn.metrics import brier_score_loss
 
 
 # prepare the input data
-inputf = "data/data_DeepMirTar_miRAW_noRepeats_3folds.txt"
+inputf = "./data/data_DeepMirTar_miRAW_noRepeats_3folds.txt"
 seqs, label =  formatDeepMirTar2(inputf)
 x = [x[0] for x in seqs]
 x = padding_len(x, 79)
@@ -40,8 +40,8 @@ brierScore = brier_score_loss(y_test, y_pred)
 print("Accuracy: " + str(acc) + " Sensitivity: " + str(sen) + " Specificity: " + str(spe) + " F-measure: " + str(Fmeasure) + " Positive predictive value: " + str(PPV) + " Negative predictive value: " + str(NPV) + "Brier score: " + str(brierScore))
 
 
-inputf = "data/data_miRaw_IndTest_noRepeats_3folds.txt"
-#inputf = "data/data_DeepMirTar_IndTest_noRepeats_3folds.txt"
+inputf = "./data/data_miRaw_IndTest_noRepeats_3folds.txt"
+#inputf = "./data/data_DeepMirTar_IndTest_noRepeats_3folds.txt"
 seqs, label =  formatDeepMirTar2(inputf)
 x = [x[0] for x in seqs]
 x = padding_len(x, 79)

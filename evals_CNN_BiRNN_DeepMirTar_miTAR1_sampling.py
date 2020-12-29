@@ -32,7 +32,7 @@ import matplotlib.pyplot as plt
 
 
 # prepare the input data
-inputf = "data/data_DeepMirTar_removeMisMissing_remained_seed1122.txt"
+inputf = "./data/data_DeepMirTar_removeMisMissing_remained_seed1122.txt"
 seqs, label =  formatDeepMirTar2(inputf)
 x = [x[0] for x in seqs]
 x = padding(x)

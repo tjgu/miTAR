@@ -32,7 +32,7 @@ import matplotlib.pyplot as plt
 
 
 # prepare the input data
-inputf = "data/data_miRaw_noL_noMisMissing_remained_seed1122.txt"
+inputf = "./data/data_miRaw_noL_noMisMissing_remained_seed1122.txt"
 seqs, label =  formatDeepMirTar2(inputf)
 x = [x[0] for x in seqs]
 x = padding(x)
@@ -60,26 +60,6 @@ for seed in seeds:
 	X_train, X_test, y_train, y_test = train_test_split(x_2, y_2, test_size=percT, random_state=seed)
 	X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=percT, random_state=seed)
 
-	model = Sequential()
-	model.add(Embedding(input_dim=5, output_dim=5, input_length=x.shape[1]))
-	model.add(Conv1D(filters=fils, kernel_size=ksize, activation='relu'))
-	model.add(Dropout(dout))
-	model.add(MaxPooling1D(pool_size=2))
-	model.add(Dropout(dout))
-	model.add(Bidirectional(LSTM(32, activation='relu')))
-	model.add(Dropout(dout))
-	model.add(Dense(16, activation='relu'))
-	model.add(Dropout(dout))
-	model.add(Dense(1, activation='sigmoid'))
-
-	model.summary()
-	adam = optimizers.Adam(lr)
-	model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-	es = EarlyStopping(monitor='val_acc', mode='max', min_delta=0.001, verbose=1, patience=100)
-	mcp = ModelCheckpoint(filepath='results/sampling/miTAR2_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seed' + str(seed) + '_1122.h5', monitor='val_acc', mode='max', save_best_only=True, verbose=1)
-	lstm_CNN_history = model.fit(X_train, y_train, epochs=epochs, batch_size=batch, validation_data=(X_valid, y_valid), verbose=2, callbacks=[es, mcp]).history
-	
 	bestModel = load_model('results/sampling/miTAR2_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seed' + str(seed) + '_1122.h5')
 
 	score = bestModel.evaluate(X_test, y_test, verbose=0)

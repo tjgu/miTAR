@@ -43,7 +43,7 @@ vals = []
 acc = 0
 seeds = [1234, 2345, 3456, 4567, 5678, 6789, 7890, 123, 234, 345, 456, 567, 678, 890, 11, 22, 33, 44, 55, 66, 77, 88, 99, 111, 222, 333, 444, 555, 666, 777]
 for seed in seeds:
-	inputf = 'data/sampling/data_DeepMirTar_miRAW_noRepeats_3folds_seed' + str(seed) + '.txt'
+	inputf = "./data/data_DeepMirTar_miRAW_noRepeats_3folds.txt"
 	seqs, label =  formatDeepMirTar2(inputf)
 	x = [x[0] for x in seqs]
 	x = padding(x)
@@ -59,25 +59,6 @@ for seed in seeds:
 	X_train, X_test, y_train, y_test = train_test_split(x_2, y_2, test_size=percT, random_state=seed)
 	X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=percT, random_state=seed)
 
-	model = Sequential()
-	model.add(Embedding(input_dim=5, output_dim=5, input_length=timesteps))
-	model.add(Conv1D(filters=fils, kernel_size=ksize, activation='relu'))
-	model.add(Dropout(dout))
-	model.add(MaxPooling1D(pool_size=2))
-	model.add(Dropout(dout))
-	model.add(Bidirectional(LSTM(32, activation='relu')))
-	model.add(Dropout(dout))
-	model.add(Dense(16, activation='relu'))
-	model.add(Dropout(dout))
-	model.add(Dense(1, activation='sigmoid'))
-
-	model.summary()
-	adam = optimizers.Adam(lr)
-	model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-	es = EarlyStopping(monitor='val_acc', mode='max', min_delta=0.001, verbose=1, patience=100)
-	mcp = ModelCheckpoint(filepath='results/sampling/miTAR_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seed' + str(seed) + '.h5', monitor='val_acc', mode='max', save_best_only=True, verbose=1)
-	lstm_CNN_history = model.fit(X_train, y_train, epochs=epochs, batch_size=batch, validation_data=(X_valid, y_valid), verbose=2, callbacks=[es, mcp]).history
 	
 	bestModel = load_model('results/sampling/miTAR_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seed' + str(seed) + '.h5')
 
@@ -112,7 +93,7 @@ for i in range(7):
 
 print("The average evaluations are: ", aveEvals)
 
-outfName = 'results/sampling/miTAR_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seeds_evals.txt'
+outfName = 'results/sampling/miTAR_CNN_BiRNN_b' + str(batch) + '_lr' + str(lr) + '_dout' + str(dout) + '_seeds_1122_evals.txt'
 with open(outfName, 'w+', encoding='utf-8') as outf:
 	for i in range(len(vals)):
 		outf.write("\t".join(str(vals[i][j]) for j in range(7)))
