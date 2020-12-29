@@ -42,7 +42,7 @@ The input of our tools are: whole sequence/sequences of miRNA/miRNAs from 5'->3'
 This directory contains a Conda package with all the packages and dependencies installed. We supplied the package for 11 platforms. The package is renamed as mitar.
 
 ## mitar
-This directory contains the package of miTAR, which renamed: miTAR-0.0.1.tar.gz but without dependencies installed.
+This directory contains the package of miTAR, which renamed: mitar-0.0.1.tar.gz but without dependencies installed.
 
 ## scripts_data_models
 This directory contains all the raw scripts, the data used for generating the models (data directory), the trained models (in results directory)
