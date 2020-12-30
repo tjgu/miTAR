@@ -40,14 +40,13 @@ The input of our tools are: whole sequence/sequences of miRNA/miRNAs from 5'->3'
 
 ## conda
 This directory contains a Conda package with all the packages and dependencies installed. We supplied the package for 11 platforms. The package is renamed as mitar.
-###How to use it:
+######How to use it:
 Download the package and install it on your local machine by 
 `conda install --use-local mitar`
 
 ## mitar
 This directory contains the package of miTAR, which renamed: mitar-0.0.1.tar.gz but without dependencies installed.
-
-###How to use it:
+######How to use it:
 Download the package, uncompress it and use the scripts directly or install by 
 `python setup.py install`
 
