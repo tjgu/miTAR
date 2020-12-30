@@ -51,9 +51,9 @@ Download the package, uncompress it and use the scripts directly or install by
 `python setup.py install`
 
 ## scripts_data_models
-This directory contains all the raw scripts, the data used for generating the models (data directory), the trained models (in results directory)
+This directory contains all the raw scripts, the data used for generating the models (data directory), and the trained models (in results directory).
 
 
-
-If you have any questions or suggestions, please contact Tongjun Gu: tgu at ufl.edu.
+## Report issues:
+If you have any questions or suggestions or meet any issues, please contact Tongjun Gu: tgu at ufl.edu.
    
