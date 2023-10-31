@@ -17,6 +17,12 @@ The meaning of the parameters are the same as predict_onemiRmultimRNA.py and can
 
 **The model used in the predict_multimiRmultimRNA.py and predict_onemiRmultimRNA.py is miTAR. If you would like to use a different model, please replace the model with another one, and change the fragment length to match the model input.**
 
+## Understanding the output
+The results from predict_onemiRmultimRNA.py and predict_multimiRmultimRNA.py were saved to the file following -o, such as results/tests/mirna_multiple_predictedTar.fa as shown in the above example. In the fasta file, each line following > contains the miRNA/gene information. For example, the first line in the results/tests/mirna_multiple_predictedTar.fa file: >hsa-miR-22-3p|1_long|2|4|0.9964378. 
+hsa-miR-22-3p is the miRNAID; 1_long is the geneID; 2 is the total number of target site identified as the target location in one gene ( in this case, two miRNA target sites were identified in 1_long gene); 4 is the number of target site tested starting from 0 (in this case, the 4th target site); 0.9964378 is the probability of the prediction for this specific target site.
+
+The results summary has the same meaning: [miRNAID|targetID, the target site number, the prediction probability for this target site], the total number of target sites have been found. 
+
 ## Requirements
 The following packages should be installed before running the scripts
 
