@@ -59,6 +59,8 @@ Download the package, uncompress it and use the scripts directly or install by
 ## scripts_data_models
 This directory contains all the raw scripts, the data used for generating the models (data directory), and the trained models (in results directory).
 
+## Suggestions on selecting high confident miRNA targets
+You can increase the prediction probablity for each site that has been found; or increase the number of target sites per gene
 
 ## Report issues:
 If you have any questions or suggestions or meet any issues, please contact Tongjun Gu: tgu at ufl.edu.
